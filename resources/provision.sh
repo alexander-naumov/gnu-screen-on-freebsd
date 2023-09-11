@@ -116,7 +116,7 @@ install_local_package() {
 
 install_extra_packages() {
   if upstream_pkg_site_available; then
-    ASSUME_ALWAYS_YES=yes pkg install sudo bash curl rsync gmake print/texinfo git autoconf indexinfo automake
+    ASSUME_ALWAYS_YES=yes pkg install sudo bash curl rsync gcc gmake print/texinfo git autoconf indexinfo automake
   else
     bootstrap_pkg
     install_local_package sudo
@@ -129,7 +129,7 @@ install_extra_packages() {
     install_local_package autoconf
     install_local_package indexinfo
     install_local_package automake
-
+    install_local_package gcc
   fi
 }
 
