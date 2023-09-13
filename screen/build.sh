@@ -8,6 +8,7 @@ git -c http.sslVerify=false clone https://github.com/alexander-naumov/gnu-screen
 cd gnu-screen/src
 ./autogen.sh
 cc=gcc ./configure CFLAGS="-Wall"
+gmake
 ./screen -v
 ./screen -ls
 gmake clean
