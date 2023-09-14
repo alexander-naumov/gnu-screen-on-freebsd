@@ -1,4 +1,4 @@
-name: Build VM Disk Image
+name: FreeBSD 13.0 aarch64
 
 on:
   push:
@@ -17,37 +17,11 @@ jobs:
         fail-fast: false
         matrix:
           version:
-            - '12.2'
             - '13.0'
-            - '13.1'
-            - '13.2'
-            - '13.3'
-            - '14.0'
 
           architecture:
-            - name: x86-64
-              qemu: x86_64
-
             - name: arm64
               qemu: aarch64
-
-          exclude:
-            - version: '12.2'
-              architecture:
-                name: arm64
-                qemu: aarch64
-
-          include:
-            - version: '12.4'
-              copy_from_previous_release: true
-              architecture:
-                name: arm64
-                qemu: aarch64
-
-            - version: '12.4'
-              architecture:
-                name: x86-64
-                qemu: x86_64
 
     steps:
       - name: Clone Repository
@@ -65,11 +39,6 @@ jobs:
       - uses: hashicorp/setup-packer@main
         with:
           version: "1.9.1"
-
-      # - name: Setup tmate session
-      #   uses: mxschmitt/action-tmate@v3
-      #   with:
-      #     limit-access-to-actor: true
 
       - name: Build Image
         if: '!matrix.copy_from_previous_release'

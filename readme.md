@@ -1,4 +1,4 @@
-# FreeBSD Builder
+# CI/CD GNU Screen on FreeBSD
 
 This project builds the FreeBSD VM image for the
 [cross-platform-actions/action](https://github.com/cross-platform-actions/action)
@@ -11,6 +11,13 @@ well:
 * sudo
 * bash
 * curl
+* gcc
+* gmake
+* git
+* print/texinfo
+* autoconf
+* indexinfo
+* automake
 
 Except for the root user, there's one additional user, `runner`, which is the
 user that will be running the commands in the GitHub action. This user is
@@ -27,8 +34,6 @@ The following architectures and versions are supported:
 | 13.2    | ✓      | ✓     |
 | 13.1    | ✓      | ✓     |
 | 13.0    | ✓      | ✓     |
-| 12.4    | ✓      | ✓     |
-| 12.2    | ✓      | ✗     |
 
 ## Building Locally
 
@@ -51,6 +56,26 @@ The following architectures and versions are supported:
     ```
     Where `<version>` and `<architecture>` are the any of the versions or
     architectures available in the above table.
+
+3. Get the GNU Screen source code from the devel repository and build it:
+    ```
+    % uname -a
+    % cc -v
+    % git -c http.sslVerify=false clone https://github.com/alexander-naumov/gnu-screen.git
+    % cd gnu-screen/src
+    % ./autogen.sh
+
+    % cc=gcc ./configure CFLAGS="-Wall"
+    % gmake
+    % ./screen -v
+    % ./screen -ls
+    % gmake clean
+
+    % cc=clang ./configure CFLAGS="-Wall -DDEBUG"
+    % gmake
+    % ./screen -v
+    % ./screen --help
+    ```
 
 The above command will build the VM image and the resulting disk image will be
 at the path: `output/freebsd-<version>-<architecture>.qcow2`.
