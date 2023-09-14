@@ -1,5 +1,7 @@
 # CI/CD GNU Screen on FreeBSD
 
+<img align="right" src="freebsd-daemon.jpg" height="300">
+
 This project builds the FreeBSD VM image for the
 [cross-platform-actions/action](https://github.com/cross-platform-actions/action)
 GitHub action. The image contains a standard FreeBSD installation without any
@@ -46,13 +48,13 @@ The following architectures and versions are supported:
 
 1. Clone the repository:
     ```
-    git clone https://github.com/cross-platform-actions/freebsd-builder
-    cd freebsd-builder
+    % git clone https://github.com/cross-platform-actions/freebsd-builder
+    % cd freebsd-builder
     ```
 
 2. Run `build.sh` to build the image:
     ```
-    ./build.sh <version> <architecture>
+    % ./build.sh <version> <architecture>
     ```
     Where `<version>` and `<architecture>` are the any of the versions or
     architectures available in the above table.
