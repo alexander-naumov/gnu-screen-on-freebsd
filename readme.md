@@ -1,6 +1,6 @@
 # CI/CD GNU Screen on FreeBSD
 
-<img align="right" src="freebsd-daemon.jpg" height="300">
+<img align="right" src="freebsd-daemon.jpg" height="200">
 
 This project builds the FreeBSD VM image for the
 [cross-platform-actions/action](https://github.com/cross-platform-actions/action)
