@@ -70,7 +70,7 @@ The following architectures and versions are supported:
     % cc=gcc ./configure CFLAGS="-Wall"
     % gmake
     % ./screen -v
-    % ./screen -ls
+    % ./screen -ls || echo $?
     % gmake clean
 
     % cc=clang ./configure CFLAGS="-Wall -DDEBUG"
