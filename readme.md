@@ -76,6 +76,7 @@ The following architectures and versions are supported:
     % cc=clang ./configure CFLAGS="-Wall -DDEBUG"
     % gmake
     % ./screen -v
+    % ./screen -ls || echo $?
     % ./screen --help
     ```
 
