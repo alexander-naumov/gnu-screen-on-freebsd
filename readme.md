@@ -74,6 +74,7 @@ The following architectures and versions are supported:
     % gmake clean
 
     % cc=clang ./configure CFLAGS="-Wall -DDEBUG"
+    % grep @CFLAGS@ Makefile.in
     % gmake
     % ./screen -v
     % ./screen -ls || echo $?
