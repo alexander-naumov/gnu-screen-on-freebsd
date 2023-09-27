@@ -13,6 +13,7 @@ gmake
 ./screen -ls || echo $?
 gmake clean
 cc=clang ./configure CFLAGS="-Wall -DDEBUG"
+grep @CFLAGS@ Makefile.in
 gmake
 ./screen -v
 ./screen -ls || echo $?
