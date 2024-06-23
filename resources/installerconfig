@@ -36,6 +36,9 @@ EOF
 
 configure_root_user() {
   echo "$ROOT_PASSWORD" | pw usermod root -h 0
+  # FreeBSD before 14.0 use csh as a default shell for root. Packer generates
+  # commands like `foo; BAR=bar BAZ=baz bar` which fails on csh.
+  pw usermod -n root -s /bin/sh
 }
 
 configure_timezone() {
