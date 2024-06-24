@@ -23,18 +23,6 @@ jobs:
             - name: x86-64
               qemu: x86_64
 
-          include:
-            - version: '12.4'
-              copy_from_previous_release: true
-              architecture:
-                name: arm64
-                qemu: aarch64
-
-            - version: '12.4'
-              architecture:
-                name: x86-64
-                qemu: x86_64
-
     steps:
       - name: Clone Repository
         uses: actions/checkout@v3
